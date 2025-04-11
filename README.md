@@ -2,7 +2,7 @@
 A script for triggering a Picoscope 5442A, Series 5000 remotely is provided using the picosdk-python-wrappers.
 
 ## Setup of the PC that is going to be used
-- In order to use the picosdk-python-wrappers, a Python version (not the latest, in that case Python 3.13 is not compatible!) is needed.
+- In order to use the picosdk-python-wrappers, a Python version is needed (not the latest, in that case Python 3.13 is not compatible!).
 - The scripts are run on Python 3.9.9.
 - You will also need the library picosdk-python-wrappers: https://github.com/picotech/picosdk-python-wrappers. Please follow the installation guide.
 
