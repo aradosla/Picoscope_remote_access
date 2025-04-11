@@ -12,7 +12,7 @@ import shutil
 
 
 # Assuming your data collection and plotting part is inside a function or a block
-def collect_data(path_to_save = '.', plots_signal = False):
+def collect_data(path_to_save_locally = '.', plots_signal = False):
     # -------------------- SAFETY CHECK BEFORE STARTING --------------------
     print("🔒 Running safety check before opening PicoScope...")
 
@@ -377,8 +377,8 @@ def collect_data(path_to_save = '.', plots_signal = False):
     
     #print(timestamp_str)
     
-    os.makedirs(f'{path_to_save}', exist_ok=True)
-    path_last = f'{path_to_save}/aquisition_{timestamp_str}.parquet'
+    os.makedirs(f'{path_to_save_locally}', exist_ok=True)
+    path_last = f'{path_to_save_locally}/aquisition_{timestamp_str}.parquet'
     df.to_parquet(path_last, engine = 'pyarrow')
     return path_last
     #print("Collecting data...") 
@@ -391,7 +391,7 @@ while True:
     #a = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     #print(a)
     if picoscope_flag:
-        latest_file = collect_data(path_to_save='.')  # Collect data
+        latest_file = collect_data(path_to_save_locally='.')  # Collect data
         # Copy to destination folder
         dest_path = os.path.join(my_eos_folder, latest_file)
         shutil.copy(latest_file, dest_path)
